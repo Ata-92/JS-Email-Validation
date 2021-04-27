@@ -1,5 +1,5 @@
 function validEmail(email) {
-  if (parseInt(email[0]) != email[0] && email.includes("@") && email.split(".").length === 2 && (email.split(".")[1].length === 3 || email.split(".")[1].length === 2)) {
+  if (parseInt(email[0]) != email[0] && email.split("@").length === 2 && email.split("@")[1].split(".").every(i => i.split("").every(j => j.toLocaleLowerCase() != j.toLocaleUpperCase())) && email.split(".").length === 2 && (email.split(".").some(i => i.length === 2 || i.length === 3))) {
     alert(`Your email ${email} is valid`);
     return true;
   } else {
